@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--FONT AWESOME CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./style.css">
+   
+    <title>Category tabs</title>
+
+</head>
+
+<body onload="bodyload()">
+
+    <nav>
+
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+
+        <h2 id="main-logo">Marmeto</h2>
+
+        <div class="navigation active">
+            <div class="logo">
+                <img src="./assets/Meubel House_Logos-05.png" alt="">
+                <h2>Marmeto</h2>
+            </div>
+
+            <div class="navbar">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="icons">
+                <img src="./assets/akar-icons_search.png" alt="">
+                <img src="./assets/akar-icons_heart.png" alt="">
+                <img src="./assets/ant-design_shopping-cart-outlined.png" alt="" onclick="addToCart()">
+            </div>
+        </div>
+    </nav>
+
+
+    <section>
+        <div class="content">
+            <div class="content-top">
+                <img src="./assets/Meubel House_Logos-05.png" alt="">
+                <h2>Cart</h2>
+            </div>
+            <div class="content-bottom">
+                <span id="home">Home</span><img src="./assets/dashicons_arrow-down-alt2.png" alt="">
+                <span id="cart">Cart</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="cart-item">
+        <div class="cart-details">
+            <div class="cart-left">
+                <table>
+                   <thead>
+                    <tr>
+                        <th></th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                        <th></th>
+                    </tr>
+                   </thead>
+                   <tbody id="cart_content">
+                    <tr>
+                        <td id="product-img"></td>
+                        <td id="product-title"></td>
+                        <td id="product-price">Rs.&nbsp;</td>
+                        <td id="product-quantity"><input id="quantity" type="number" min="0" max="100" onclick="increaseQuantity()"></td>
+                        <td id="sub-total">Rs.&nbsp;</td>
+                        <td><img src="./assets/ant-design_delete-filled.png" alt="" id="deleteCart" onclick="deleteCart" ></td>
+                    </tr>
+                   </tbody>
+                </table>
+            </div>
+            <div class="cart-right">
+                <div>
+                    <h1>Cart Totals</h1>
+                    <div class="sub-total">
+                        <span class="sub-text">Subtotal</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span id="sub-total-amt"></span>
+                    </div>
+                    <div class="total">
+                        <span class="sub-text">Total</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span id="total-amt"></span>
+                    </div>
+
+                    <button class="btn" id="checkout">Check Out</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="footer-content">
+            <div class="inner-content">
+                <img src="./assets/trophy 1.png" alt="">
+                <div>
+                    <h2>High Quality</h2>
+                    <h4>crafted from top materials</h4>
+                </div>
+            </div>
+            <div class="inner-content">
+                <img src="./assets/guarantee.png" alt="">
+                <div>
+                    <h2>Warranty Protection</h2>
+                    <h4>Over 2 years</h4>
+                </div>
+            </div>
+            <div class="inner-content">
+                <img src="./assets/shipping.png" alt="">
+                <div>
+                    <h2>Free Shipping</h2>
+                    <h4>Order over 150 $</h4>
+                </div>
+            </div>
+            <div class="inner-content">
+                <img src="./assets/customer-support.png" alt="">
+                <div>
+                    <h2>24 / 7 Support</h2>
+                    <h4>Dedicated support</h4>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <div class="custom-alert" id="customAlert">
+        <p id="alertMessage"></p>
+        <button onclick="closeCustomAlert()">OK</button>
+      </div>
+
+    
+
+    <!-- Happy coding 😊 -->
+    <script src="./script.js"></script>
+</body>
+
+</html>
