@@ -80,9 +80,9 @@
                         <td id="product-img"></td>
                         <td id="product-title"></td>
                         <td id="product-price">Rs.&nbsp;</td>
-                        <td id="product-quantity"><input id="quantity" type="number" min="0" max="100" onclick="increaseQuantity()"></td>
+                        <td id="product-quantity"><input id="quantity" type="number" min="0" max="100" onclick="increaseQuantity()" onblur="increaseQuantity()"></td>
                         <td id="sub-total">Rs.&nbsp;</td>
-                        <td><img src="./assets/ant-design_delete-filled.png" alt="" id="deleteCart" onclick="deleteCart" ></td>
+                        <td><img src="./assets/ant-design_delete-filled.png" alt="" id="delete" onclick="deleteCart" ></td>
                     </tr>
                    </tbody>
                 </table>
@@ -144,7 +144,8 @@
 
     <div class="custom-alert" id="customAlert">
         <p id="alertMessage"></p>
-        <button onclick="closeCustomAlert()">OK</button>
+        <br>
+        <button id="ok" onclick="closeCustomAlert()" class="alert-btn">OK</button>
       </div>
 
     

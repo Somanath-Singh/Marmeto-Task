@@ -9,7 +9,7 @@ menuicon.onclick = () => {
 
 //alert message
 function customAlert(message) {
-    document.getElementById('alertMessage').textContent = message;
+    document.getElementById('alertMessage').innerHTML = message;
     document.getElementById('customAlert').style.display = 'block';
   }
 
@@ -95,17 +95,40 @@ function increaseQuantity(){
         document.getElementById("sub-total-amt").innerText=`Rs. ${price}`;
 
         document.getElementById("total-amt").innerText=`Rs. ${price}`;
-    }    
+    } 
+    
+    
+    if(quantity == 0){
+
+        customAlert("Quantity can't be zero ...");
+
+        setQuantity();
+
+    }   
 
 }
 
-var remove=0;
+var remove=true;
 
 
 //delete cart item
-document.getElementById("deleteCart").addEventListener("click",function(){
+document.getElementById("delete").addEventListener("click",function(){
 
-    customAlert("Cart item is removed from the cart ...\n please click the shopping icon to add item into cart ...");
+
+    const remove = `Are you sure you want to remove the item from cart ... <br><br>
+                    <button class="alert-btn" onClick="deleteCart()">Remove<button>`;
+
+    customAlert(remove);
+
+    document.getElementById("ok").style.display="none";
+
+})
+
+function deleteCart()
+{
+    const deleteItem = `Cart item is removed from the cart ... <br> please click the <span class="checkout-item">shopping icon</span> to add item into cart ...`;
+
+    customAlert(deleteItem);
 
    document.getElementById("cart_content").style.visibility="hidden";
 
@@ -113,9 +136,12 @@ document.getElementById("deleteCart").addEventListener("click",function(){
 
     document.getElementById("total-amt").innerText=`Rs. ${0}`;
 
-    remove=1;
+    document.getElementById("quantity").value=0;
 
-})
+    document.getElementById("ok").style.display="block";
+
+    remove=false;
+}
 
 
 //checkout items
@@ -125,8 +151,15 @@ document.getElementById("checkout").addEventListener("click",function(){
 
     var price = document.getElementById("total-amt").innerText;
 
+    var checkout = "First add the item into cart ...";
 
-    customAlert(`Item Name - ${cartItem[0].items[0].title}  Quantity - ${quantity}  TotalPrice - ${price} `);
+    //if cart item is not removed
+    if(remove == true)
+    {
+        checkout = `<span class="checkout-item">Item Name</span> - ${cartItem[0].items[0].title} <br> <span class="checkout-item">Description</span> - ${cartItem[0].items[0].product_description} <br> <span class="checkout-item">Actual Price<span> - ${cartItem[0].items[0].price} <br> <span class="checkout-item">Quantity<span> - ${quantity} <br> <span class="checkout-item">TotalPrice<span> - ${price} <br>  `;
+    }
+
+    customAlert(checkout);
 
 })
 
@@ -134,8 +167,10 @@ document.getElementById("checkout").addEventListener("click",function(){
 //add to cart
 function addToCart(){
 
-    if(remove == 1)
+    if(remove == false)
     {
+
+    customAlert(`Item added to cart ...`);
 
     document.getElementById("cart_content").style.visibility="visible";
 
@@ -150,7 +185,7 @@ function addToCart(){
     document.getElementById("total-amt").innerText=`Rs. ${price}`;
     }
 
-    remove=0;
+    remove=true;
     
 }
 
