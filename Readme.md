@@ -1,4 +1,4 @@
-webpage is live at https://somanath-singh.github.io/Marmeto-Task/
+webpage is live at https://shoppingcarppage.netlify.app/
 
 # Coding Assessment L-2 Code Submission Process with Boilerplate
 
