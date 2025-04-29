@@ -12,6 +12,11 @@
   scroll-behavior: smooth;
 }
 
+::selection {
+      background-color: #ffcc00;
+      color: black;
+    }
+
 html,
 body {
   height: 100%;
